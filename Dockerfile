@@ -8,6 +8,7 @@ RUN dnf install -y epel-release && \
 	dnf clean all
 
 COPY setting.log run.sh /usr/local/bin/
-RUN  chmod 755 /usr/local/bin/run.sh
+RUN chmod 755 /usr/local/bin/run.sh
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 ENTRYPOINT ["/usr/local/bin/run.sh"]
